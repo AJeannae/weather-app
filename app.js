@@ -1,37 +1,37 @@
 // Feature 1
-let currentDateAndTime = new Date();
 
-let daysOfWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let days = daysOfWeek[currentDateAndTime.getDay()];
-
-let time = currentDateAndTime.toLocaleTimeString("en-US", {
-  hour: "numeric",
-  minute: "numeric",
-});
-
-let dateAndTime = `${days} ${time}`;
-
-let weekTime = document.querySelector("#day-time");
-weekTime.innerHTML = dateAndTime;
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
 // Feature 2
 
 function displayNameAndWeatherTemp(response) {
-  console.log(response.data.name);
-  console.log(response);
   let heading = document.querySelector("h1");
   heading.innerHTML = response.data.name;
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.main.temp);
+  let dateElement = document.querySelector("#day-time");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let weatherDescription = document.querySelector("#description");
   weatherDescription.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity");
