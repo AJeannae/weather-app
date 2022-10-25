@@ -35,9 +35,9 @@ function displayNameAndWeatherTemp(response) {
   let weatherDescription = document.querySelector("#description");
   weatherDescription.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
+  humidity.innerHTML = response.data.main.humidity + "%";
   let windSpeed = document.querySelector("#wind-speed");
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed) + " mph";
 }
 
 function searchCity(city) {
