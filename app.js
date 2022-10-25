@@ -28,6 +28,12 @@ function formatDate(timestamp) {
 function displayNameAndWeatherTemp(response) {
   let heading = document.querySelector("h1");
   heading.innerHTML = response.data.name;
+  let iconElement = document.querySelector("#main-icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.main.temp);
   let dateElement = document.querySelector("#day-time");
