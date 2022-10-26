@@ -36,6 +36,8 @@ function displayNameAndWeatherTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temp;
   let dateElement = document.querySelector("#day-time");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let weatherDescription = document.querySelector("#description");
@@ -72,26 +74,27 @@ function yourLocation(event) {
 let buttons = document.querySelector("#search-form");
 buttons.addEventListener("submit", handleSubmit);
 
-// Bonus Feature
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = 66;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
-}
+// Unit Conversion
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+let celsiusTemperature = null;
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", yourLocation);
