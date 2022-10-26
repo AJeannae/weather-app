@@ -128,3 +128,12 @@ a {
   text-decoration: none !important;
   cursor: pointer;
 }
+
+.temperature-container .active {
+  color: black;
+  cursor: default;
+}
+
+.temperature-container .active:hover {
+  text-decoration: none;
+}
