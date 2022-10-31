@@ -113,6 +113,9 @@ h3 {
   color: #9a8c98;
   font-size: 20px;
 }
+.LowestTemperature {
+  opacity: 0.6;
+}
 
 footer {
   text-align: center;
