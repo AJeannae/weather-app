@@ -23,39 +23,27 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-/* function displayForecast() {
+function displayForecast() {
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `<div class="WeeklyForecast" id="weather-forecast">
-          <div class="col">
-            <div class="ForecastPreview">
-              <div class="forecastDay">Tues</div>
-              <img src="icons/cloud.png" class="icons" />
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <div class="forecastDay">${day}</div>
+              <img src="https://openweathermap.org/img/wn/04n@2x.png" class="image" alt=""/>
               <div class="forecastTemperature">
-                <span class="HighestTemperature">68°</span>
-                <span class="LowestTemperature">41°</span>
+                <span class="HighestTemperature">69°</span>
+                <span class="LowestTemperature">51°</span>
               </div>
-            </div>
-          </div>`;
+            </div>`;
+  });
 
-  forecastHTML =
-    forecastHTML +
-    `<div class="WeeklyForecast" id="weather-forecast">
-          <div class="col">
-            <div class="ForecastPreview">
-              <div class="forecastDay">Tues</div>
-              <img src="icons/cloud.png" class="icons" />
-              <div class="forecastTemperature">
-                <span class="HighestTemperature">68°</span>
-                <span class="LowestTemperature">41°</span>
-              </div>
-            </div>
-          </div>`;
   forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML; */
+  forecastElement.innerHTML = forecastHTML;
+}
 
 // Feature 2
 
@@ -138,3 +126,4 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", yourLocation);
 
 searchCity("London");
+displayForecast();
