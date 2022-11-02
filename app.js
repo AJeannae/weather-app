@@ -23,6 +23,40 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+/* function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `<div class="WeeklyForecast" id="weather-forecast">
+          <div class="col">
+            <div class="ForecastPreview">
+              <div class="forecastDay">Tues</div>
+              <img src="icons/cloud.png" class="icons" />
+              <div class="forecastTemperature">
+                <span class="HighestTemperature">68°</span>
+                <span class="LowestTemperature">41°</span>
+              </div>
+            </div>
+          </div>`;
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="WeeklyForecast" id="weather-forecast">
+          <div class="col">
+            <div class="ForecastPreview">
+              <div class="forecastDay">Tues</div>
+              <img src="icons/cloud.png" class="icons" />
+              <div class="forecastTemperature">
+                <span class="HighestTemperature">68°</span>
+                <span class="LowestTemperature">41°</span>
+              </div>
+            </div>
+          </div>`;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML; */
+
 // Feature 2
 
 function displayNameAndWeatherTemp(response) {

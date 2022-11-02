@@ -32,8 +32,7 @@ input {
 }
 
 img {
-  width: 130px;
-  margin-left: 20px;
+  width: 120px;
 }
 
 .units {
@@ -90,8 +89,7 @@ h3 {
 }
 
 .WeeklyForecast {
-  margin: 40px 0;
-  padding-bottom: 50px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -101,17 +99,17 @@ h3 {
   color: rgba(39, 33, 66, 0.4);
 }
 
-.icons {
-  width: 70px;
+.image {
   display: block;
-  margin: 0 auto;
-  margin-top: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95px;
 }
 
 .forecastTemperature {
   margin: 5px;
   color: #9a8c98;
-  font-size: 20px;
+  font-size: 18px;
 }
 .LowestTemperature {
   opacity: 0.6;
