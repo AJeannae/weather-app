@@ -45,6 +45,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "de2c40e370d58e257faf07ba4ea95840";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Feature 2
 
 function displayNameAndWeatherTemp(response) {
@@ -68,6 +76,8 @@ function displayNameAndWeatherTemp(response) {
   humidity.innerHTML = response.data.main.humidity + "%";
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = Math.round(response.data.wind.speed) + " mph";
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -126,4 +136,3 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", yourLocation);
 
 searchCity("London");
-displayForecast();
